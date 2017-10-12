@@ -1,0 +1,13 @@
+<launch>
+  <node pkg="rosserial_python" type="serial_node.py" name="rosserial">
+    <param name="port" type="str" value="/dev/base_controller"/>
+    <param name="baud" type="int" value="57600"/>
+  </node>
+
+  <node pkg="hercules_base" type="hercules_base_node" name="hercules_base" output="screen">
+    <param name="frame_id" type="str" value="odom"/>
+    <param name="child_frame_id" type="str" value="base_link"/>
+    <param name="pub_topic" type="str" value="odom"/>
+    <param name="sub_topic" type="str" value="base_odom"/>
+  </node>
+</launch>

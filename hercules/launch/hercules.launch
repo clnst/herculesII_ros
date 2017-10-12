@@ -1,0 +1,3 @@
+<launch>
+    <node pkg="hercules" type="hercules_node" name="hercules" output="screen"/>
+</launch>

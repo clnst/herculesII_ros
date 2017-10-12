@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo cp hercules /usr/bin
+sudo cp hercules.rules /etc/udev/rules.d

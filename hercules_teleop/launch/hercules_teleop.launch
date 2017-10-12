@@ -1,0 +1,16 @@
+<launch>
+    <arg name="joy_dev" default="/dev/input/js1"/>
+      
+    <node pkg="joy" type="joy_node" name="joy_node">
+        <param name="dev" type="str" value="$(arg joy_dev)"/>
+        <param name="deadzone" type="double" value="0.3"/>
+    </node>
+      
+    <node pkg="hercules_teleop" type="hercules_teleop_node" name="hercules_teleop" output="screen">
+        <param name="pub_topic" type="str" value="cmd_vel"/>
+        <param name="sub_topic" type="str" value="joy"/>
+        <param name="linear_scale" type="double" value="1.0"/>
+        <param name="angular_scale" type="double" value="1.0"/>
+        <param name="test_mode" type="bool" value="false"/>
+    </node>
+</launch>

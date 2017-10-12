@@ -1,0 +1,25 @@
+<launch>
+    <arg name="model"/>
+    <arg name="gui" default="False"/>
+    <param name="robot_description" textfile="$(find hercules)/urdf/hercules.urdf"/>
+    <param name="use_gui" value="$(arg gui)"/>
+
+    <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher"/>
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"/>
+
+    <!-- Custom application -->
+    <!--include file="$(find tts)/launch/xf_tts.launch"/-->
+
+    <!-- Custom peripherals -->
+    <!--include file="$(find hercules_teleop)/launch/hercules_teleop.launch"/-->
+    <!--include file="$(find hercules_base)/launch/hercules_base.launch"/-->
+    <!--include file="$(find kinect_v1)/launch/kinect_3dsensor.launch"/-->
+
+    <!-- Gmapping slam -->
+    <!--include file="$(find hercules_slam)/launch/gmapping_slam/gmapping_slam.launch"/-->
+
+    <!-- Hector slam -->
+    <!--include file="$(find hercules_slam)/launch/hector_slam/hector_slam.launch"/-->
+
+    <!--node name="rviz" pkg="rviz" type="rviz" args="-d $(find hercules)/rviz/hercules.rviz" required="true"/-->
+</launch>

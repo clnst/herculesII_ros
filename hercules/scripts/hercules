@@ -1,0 +1,25 @@
+#!/bin/bash
+if [ "$1" == "i" ];then
+    ssh master@192.168.3.199
+elif [ "$1" == "ii" ];then
+    ssh master@192.168.3.120
+elif [ "$1" == "map" ];then
+    MapName="$(date +%Y%m%d%H%M%S)"
+    rosrun map_server map_saver -f /var/www/html/maps/map
+elif [ "$1" == "run" ];then
+    roslaunch hercules hercules.launch
+elif [ "$1" == "exit" ];then
+    sudo -S poweroff
+elif [ "$1" == "install" ];then
+    rosrun robot_upstart install --logdir /home/master/.ros/log  hercules/launch/hercules.launch
+elif [ "$1" == "uninstall" ];then
+    rosrun robot_upstart uninstall hercules
+elif [ "$1" == "start" ];then
+    sudo service hercules start
+elif [ "$1" == "stop" ];then
+    sudo service hercules stop
+elif [ "$1" == "lib" ];then
+    rosrun rosserial_arduino make_libraries.py .
+else
+    echo "need parameter:[I/II/map/lib/run/exit/install/uninstall/start/stop]"
+fi
