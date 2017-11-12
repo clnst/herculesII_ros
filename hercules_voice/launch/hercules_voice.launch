@@ -1,0 +1,5 @@
+<launch>
+    <include file="$(find tts)/launch/xf_tts.launch"/>
+    <include file="$(find iat)/launch/xf_iat.launch"/>
+    <include file="$(find nlp)/launch/tl_nlp.launch"/>
+</launch>

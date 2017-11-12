@@ -8,11 +8,11 @@
     <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"/>
 
     <!-- Custom application -->
-    <!--include file="$(find tts)/launch/xf_tts.launch"/-->
+    <!--include file="$(find hercules_voice)/launch/hercules_voice.launch"/-->
 
     <!-- Custom peripherals -->
-    <!--include file="$(find hercules_teleop)/launch/hercules_teleop.launch"/-->
-    <!--include file="$(find hercules_base)/launch/hercules_base.launch"/-->
+    <include file="$(find hercules_teleop)/launch/hercules_teleop.launch"/>
+    <include file="$(find hercules_base)/launch/hercules_base.launch"/>
     <!--include file="$(find kinect_v1)/launch/kinect_3dsensor.launch"/-->
 
     <!-- Gmapping slam -->
